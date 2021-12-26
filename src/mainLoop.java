@@ -22,11 +22,9 @@ public class mainLoop {
             case 2:
                 System.out.println("Enter employee number...");
                 int e_nbr = scanner.nextInt();
-                if(e_nbr == 00){
-                    //TODO
-                    //Fetch data from database and compare to the input
+                if(e_nbr == 00){ //TODO Fetch data from database and compare to the input
                     System.out.println("Proccecing...");
-                    doctorLoop();
+                    doctorLoop(e_nbr);
                 }else{
                     System.out.println("INVALID EMPLOYEE NUMBER");
                 }
@@ -34,11 +32,9 @@ public class mainLoop {
             case 3:
                 System.out.println("PATIENT SIGN IN");
                 int m_nbr = scanner.nextInt();
-                if(m_nbr == 20001116){
-                    //TODO
-                    //Fetch data from database and compare to the input
+                if(m_nbr == 20001116){ //TODO Fetch data from database and compare to the input
                     System.out.println("Proccecing...");
-                    patientLoop();
+                    patientLoop(m_nbr);
                 }else{
                     System.out.println("INVALID EMPLOYEE NUMBER");
                 }
@@ -52,8 +48,10 @@ public class mainLoop {
         int choise = 0;
         while (choise != 12){
             System.out.println("1.Add a doctor");
-            System.out.println("2.Change doctor information");
-            System.out.println("3.Delete a doctor");
+            System.out.println("2.Delete a doctor");
+            System.out.println("3.See list of patients in the health center");
+            System.out.println("4.See all upcoming appointments");
+            System.out.println("5.See medical record for a patient");
             System.out.println("12.exit");
             choise = scanner.nextInt();
             switch (choise){
@@ -66,29 +64,39 @@ public class mainLoop {
                     String doctorName = scanner.next();
                     System.out.println("Please enter the phone number to the doctor");
                     String doctorPhone = scanner.next();
-                    //TODO Lägg in doctor i databasen
+                    //TODO Lägg in doctor i databasen.
                     break;
                 case 2:
                     System.out.println("Please enter the employee number of the doctor.");
                     String employeeNbr = scanner.next();
-                    //TODO Hämta från databasen
-                    switch ()
+                    //TODO Kolla om nummert finns i databasen.
+                    //TODO Ta bort doctorn om den finns.
                     break;
                 case 3:
-                    System.out.println("admin STUFF");
+                    //TODO Hämta lista av alla pasienter
+                    break;
+                case 4:
+                    //TODO Hämta lista av alla kommande bokningar
+                    break;
+                case 5:
+                    System.out.println("Please enter medicalnumber.");
+                    String medicalNbr = scanner.next();
+                    //TODO Kolla om nummert finns i databasen.
+                    //TODO hämta och skriv ut alla medical records och sortera i datum ordning.
                     break;
             }
         }
     }
 
-    private void doctorLoop(){
+    private void doctorLoop(int employeeNbr){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("WELCOME 00");
+        System.out.println("WELCOME "+employeeNbr);
         int choise = 0;
         while (choise != 12){
-            System.out.println("1.shit");
-            System.out.println("2.more shit");
-            System.out.println("3.stuff");
+            System.out.println("1.Define availabilities");
+            System.out.println("2.List all upcoming appointments");
+            System.out.println("3.");
+            System.out.println("4.");
             System.out.println("12.exit");
             choise = scanner.nextInt();
             switch (choise){
@@ -105,9 +113,9 @@ public class mainLoop {
         }
     }
 
-    private void patientLoop(){
+    private void patientLoop(int medicalNbr){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("WELCOME 20001116");
+        System.out.println("WELCOME "+medicalNbr); //TODO Fetch name of patient
         int choise = 0;
         while (choise != 12){
             System.out.println("1.patient shit");
